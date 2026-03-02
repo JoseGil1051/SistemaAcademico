@@ -1,16 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package com.gilgarzonj.sistemaacademico;
 
-/**
- *
- * @author gilga
- */
-public class SistemaAcademico {
+import java.util.ArrayList;
+import java.util.Scanner;
 
+public class SistemaAcademico {
+    Scanner scanner = new Scanner(System.in);
+    ArrayList<Estudiantes> listaEstudiantes = new ArrayList<>();
+    //ArrayList listaAsignaturas = new ArrayList<>();
+    //ArrayList listaNotas = new ArrayList<>();
+    
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        
     }
 }
