@@ -157,4 +157,39 @@ public class SistemaAcademico {
 
         System.out.println("Estudiante registrado correctamente.");
     }
+    
+    public void ListarEstudiantes() {
+        if (listaEstudiantes.isEmpty()) {
+            System.out.println("No hay estudiantes registrados.");
+            return;
+        }
+
+        for (Estudiantes e : listaEstudiantes) {
+            System.out.println("Codigo: " + e.codigo);
+            System.out.println("Nombre: " + e.nombre);
+            System.out.println("Apellido: " + e.apellido);
+            System.out.println("Edad: " + e.edad);
+            System.out.println("Semestre: " + e.semestre);
+            System.out.println("-----------------------------");
+        }
+    }
+
+    public void BuscarEstudiante() {
+        System.out.print("Ingrese codigo a buscar: ");
+        String codigo = scanner.next();
+
+        for (Estudiantes e : listaEstudiantes) {
+            if (e.codigo.equals(codigo)) {
+
+                System.out.println("Nombre: " + e.nombre);
+                System.out.println("Apellido: " + e.apellido);
+                System.out.println("Edad: " + e.edad);
+                System.out.println("Semestre: " + e.semestre);
+                return;
+            }
+        }
+
+        System.out.println("Estudiante no encontrado.");
+    }
+    
 }
