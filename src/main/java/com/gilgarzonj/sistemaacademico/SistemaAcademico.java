@@ -249,6 +249,55 @@ public class SistemaAcademico {
     
     //METODO CRUD DE ASIGNATURAS
     
+    public void RegistrarAsignatura(){
+         Asignaturas a = new Asignaturas();
+         System.out.println("Codigo:");
+         a.setCodigo(scanner.next());
+         
+         System.out.println("Nombre:");
+         a.setCodigo(scanner.next());
+         
+         System.out.println("Creditos:");
+         a.setCodigo(scanner.next());
+         
+         System.out.println("Docentos:");
+         a.setCodigo(scanner.next());
+         
+         listaAsignaturas.add(a);
+         
+         System.out.println("Asignatura agregada correctamente");
+         
+     }
+    
+    public void BuscarAsignatura() {
+        System.out.print("Ingrese codigo a buscar: ");
+        String codigo = scanner.next();
+
+        for (Asignaturas a : listaAsignaturas) {
+            if (a.getCodigo().equals(codigo)) {
+
+                System.out.println("Codigo: " + a.getCodigo());
+                System.out.println("Nombre: " + a.getNombre());
+                System.out.println("Creditos: " + a.getCreditos());
+                System.out.println("Docente: " + a.getDocente());
+                return;
+            }
+        }
+
+        System.out.println("Asignatura no encontrada.");
+    }
+    
+    public void ListarAsignaturas() {
+     
+      public void ListarAsignaturas() {
+        if (listaAsignaturas.isEmpty()) {
+            System.out.println("No hay asignaturas registradas.");
+            return;
+     public void ListarAsignaturas() {
+            System.out.println("-----------------------------");
+        }
+    }
+    
     
     //METODO CRUD DE ESTUDIANTES
 }
