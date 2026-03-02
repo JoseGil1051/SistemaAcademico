@@ -133,4 +133,28 @@ public class SistemaAcademico {
         }while (opc != 6);
     }
     
+    //METODO CRUD DE ESTUDIANTE
+    
+    public void RegistrarEstudiante() {
+        Estudiantes e = new Estudiantes();
+
+        System.out.print("Codigo: ");
+        e.codigo = scanner.next();
+
+        System.out.print("Nombre: ");
+        e.nombre = scanner.next();
+
+        System.out.print("Apellido: ");
+        e.apellido = scanner.next();
+
+        System.out.print("Edad: ");
+        e.edad = scanner.nextInt();
+
+        System.out.print("Semestre: ");
+        e.semestre = scanner.nextInt();
+
+        listaEstudiantes.add(e);
+
+        System.out.println("Estudiante registrado correctamente.");
+    }
 }
