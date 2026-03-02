@@ -192,4 +192,32 @@ public class SistemaAcademico {
         System.out.println("Estudiante no encontrado.");
     }
     
+    public void ActualizarEstudiante() {
+        System.out.print("Ingrese codigo del estudiante: ");
+        String codigo = scanner.next();
+
+        for (Estudiantes e : listaEstudiantes) {
+
+            if (e.codigo.equals(codigo)) {
+
+                System.out.print("Nuevo nombre: ");
+                e.nombre = scanner.next();
+
+                System.out.print("Nuevo apellido: ");
+                e.apellido = scanner.next();
+
+                System.out.print("Nueva edad: ");
+                e.edad = scanner.nextInt();
+
+                System.out.print("Nuevo semestre: ");
+                e.semestre = scanner.nextInt();
+
+                System.out.println("Estudiante actualizado.");
+                return;
+            }
+        }
+
+        System.out.println("Estudiante no encontrado.");
+    }
+    
 }
