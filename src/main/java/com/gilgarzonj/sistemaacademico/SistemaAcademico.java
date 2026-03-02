@@ -236,7 +236,7 @@ public class SistemaAcademico {
 
         for (int i = 0; i < listaEstudiantes.size(); i++) {
 
-            if (listaEstudiantes.get(i).codigo.equals(codigo)) {
+            if (listaEstudiantes.get(i).getCodigo().equals(codigo)) {
 
                 listaEstudiantes.remove(i);
                 System.out.println("Estudiante eliminado.");
