@@ -202,21 +202,25 @@ public class SistemaAcademico {
         System.out.print("Ingrese codigo del estudiante: ");
         String codigo = scanner.next();
 
-        for (Estudiantes e : listaEstudiantes) {
+        for (Estudiante e : listaEstudiantes) {
 
-            if (e.codigo.equals(codigo)) {
+            if (e.getCodigo().equals(codigo)) {
 
                 System.out.print("Nuevo nombre: ");
-                e.nombre = scanner.next();
+                String nombre = scanner.next();
+                e.setNombre(nombre);
 
                 System.out.print("Nuevo apellido: ");
-                e.apellido = scanner.next();
+                String apellido = scanner.next();
+                e.setApellido(apellido);
 
                 System.out.print("Nueva edad: ");
-                e.edad = scanner.nextInt();
+                int edad = scanner.nextInt();
+                e.setEdad(edad);
 
                 System.out.print("Nuevo semestre: ");
-                e.semestre = scanner.nextInt();
+                int semestre = scanner.nextInt();
+                e.setSemestre(semestre);
 
                 System.out.println("Estudiante actualizado.");
                 return;
