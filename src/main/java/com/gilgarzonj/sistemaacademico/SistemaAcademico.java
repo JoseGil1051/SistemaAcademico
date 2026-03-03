@@ -396,6 +396,52 @@ public class SistemaAcademico {
         System.out.println("----------------------");
     }
 }
+ public void BuscarNota() {
+
+    System.out.print("Codigo del estudiante: ");
+    String codEst = scanner.next();
+
+    System.out.print("Codigo de la asignatura: ");
+    String codAsig = scanner.next();
+
+    for (Nota n : listaNotas) {
+
+        if (n.getEstudiante().getCodigo().equals(codEst) &&
+            n.getAsignatura().getCodigo().equals(codAsig)) {
+
+            System.out.println(n);
+            return;
+        }
+    }
+
+    System.out.println("Nota no encontrada.");
+}
+ public void ActualizarNota() {
+
+    System.out.print("Codigo del estudiante: ");
+    String codEst = scanner.next();
+
+    System.out.print("Codigo de la asignatura: ");
+    String codAsig = scanner.next();
+
+    for (Nota n : listaNotas) {
+
+        if (n.getEstudiante().getCodigo().equals(codEst) &&
+            n.getAsignatura().getCodigo().equals(codAsig)) {
+
+            System.out.print("Nuevo valor: ");
+            n.setValor(scanner.nextDouble());
+
+            System.out.print("Nuevo periodo: ");
+            n.setPeriodo(scanner.next());
+
+            System.out.println("Nota actualizada.");
+            return;
+        }
+    }
+
+    System.out.println("Nota no encontrada.");
+}
 }
 
 
