@@ -7,8 +7,8 @@ import com.gilgarzonj.sistemaacademico.Estudiante;
 public class SistemaAcademico {
     Scanner scanner = new Scanner(System.in);
     ArrayList<Estudiante> listaEstudiantes = new ArrayList<>();
-    ArrayList listaAsignaturas = new ArrayList<>();
-    ArrayList listaNotas = new ArrayList<>();
+    ArrayList <Asignatura>listaAsignaturas = new ArrayList<>();
+    ArrayList <Nota>listaNotas = new ArrayList<>();
     
     public static void main(String[] args) {
         
@@ -254,7 +254,7 @@ public class SistemaAcademico {
     //METODO CRUD DE ASIGNATURAS
     
     public void RegistrarAsignatura(){
-         Asignaturas a = new Asignaturas();
+         Asignatura a = new Asignatura();
          System.out.println("Codigo:");
          a.setCodigo(scanner.next());
          
@@ -274,18 +274,17 @@ public class SistemaAcademico {
      }
     
     public void ListarAsignaturas() {
-     
-      public void ListarAsignaturas() {
         if (listaAsignaturas.isEmpty()) {
             System.out.println("No hay asignaturas registradas.");
             return;
         }
+    }
         
-        public void BuscarAsignatura() {
+    public void BuscarAsignatura() {
         System.out.print("Ingrese codigo a buscar: ");
         String codigo = scanner.next();
 
-        for (Asignaturas a : listaAsignaturas) {
+        for (Asignatura a : listaAsignaturas) {
             if (a.getCodigo().equals(codigo)) {
 
                 System.out.println("Codigo: " + a.getCodigo());
@@ -299,11 +298,11 @@ public class SistemaAcademico {
         System.out.println("Asignatura no encontrada.");
     }
         
-        public void ActualizarAsignatura() {
+    public void ActualizarAsignatura() {
         System.out.print("Ingrese codigo de la asignatura: ");
         String codigo = scanner.next();
 
-        for (Asignaturas a : listaAsignaturas) {
+        for (Asignatura a : listaAsignaturas) {
 
             if (a.getCodigo().equals(codigo)) {
 
@@ -324,7 +323,7 @@ public class SistemaAcademico {
         System.out.println("Estudiante no encontrado.");
     }
         
-        public void EliminarAsignatura() {
+    public void EliminarAsignatura() {
         System.out.print("Ingrese codigo de la Asignatura: ");
         String codigo = scanner.next();
 
