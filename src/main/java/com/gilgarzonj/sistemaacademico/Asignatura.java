@@ -14,15 +14,18 @@ public class Asignatura {
     private int creditos;
     private String docente;
 
-        public Asignatura() {
+    public Asignatura() {
     }
 
-    public Asignatura(String Codigo, String nombre, int creditos, String docente) {
+    
+    
+ public Asignatura(String Codigo, String nombre, int creditos, String docente) {
         this.Codigo = Codigo;
         this.nombre = nombre;
         this.creditos = creditos;
         this.docente = docente;
     }
+    
 
     /**
      * @return the Codigo
@@ -79,8 +82,5 @@ public class Asignatura {
     public void setDocente(String docente) {
         this.docente = docente;
     }
-    
-    
-    
-
 }
+
