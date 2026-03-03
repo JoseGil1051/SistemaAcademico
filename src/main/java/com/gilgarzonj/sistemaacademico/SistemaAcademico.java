@@ -17,23 +17,24 @@ public class SistemaAcademico {
     public void MenuPrincipal(){
         int opc;
         do{
+            System.out.println("");
             System.out.println("|========= MENU PRINCIPAL =========|");
             System.out.println("| 1 | MENU ESTUDIANTES             |");
             System.out.println("| 2 | MENU ASIGNATURAS             |");
             System.out.println("| 3 | MENU NOTAS                   |");
             System.out.println("| 4 | SALIR                        |");
             System.out.println("|==================================|");
-            System.out.print("Ingrese una opcion (1 - 4)");
+            System.out.print("Ingrese una opcion (1 - 4): ");
             opc = scanner.nextInt();
 
             switch (opc){
-                //case 1 -> MenuEstudiantes();
+                case 1 -> MenuEstudiantes();
 
-                //case 2 -> MenuAsignaturas();
+                case 2 -> MenuAsignaturas();
 
-                //case 3 -> MenuNotas();
+                case 3 -> MenuNotas();
 
-                //case 4 -> System.out.println("Gracias por utilizar el sistema academico, hasta la proxima...");
+                case 4 -> System.out.println("Gracias por utilizar el sistema academico, hasta la proxima...");
 
                 default -> System.out.println("Opcion incorrecta, ingrese nuevamente...");
             }
@@ -45,6 +46,7 @@ public class SistemaAcademico {
         int opc;
             
         do{
+            System.out.println("");
             System.out.println("|========= MENU ESTUDIANTES =========|");
             System.out.println("| 1 | REGISTRAR ESTUDIANTE           |");
             System.out.println("| 2 | LISTAR ESTUDIANTES             |");
@@ -53,7 +55,7 @@ public class SistemaAcademico {
             System.out.println("| 5 | ELIMINAR ESTUDIANTE            |");
             System.out.println("| 6 | SALIR                          |");
             System.out.println("|====================================|");
-            System.out.print("Ingrese una opcion (1 - 6)");
+            System.out.print("Ingrese una opcion (1 - 6): ");
             opc = scanner.nextInt();
             
             switch (opc){
@@ -76,6 +78,7 @@ public class SistemaAcademico {
         int opc;
         
         do{
+            System.out.println("");
             System.out.println("|========= MENU ASIGNATURAS =========|");
             System.out.println("| 1 | REGISTRAR ASIGNATURA           |");
             System.out.println("| 2 | LISTAR ASIGNATURAS             |");
@@ -84,19 +87,19 @@ public class SistemaAcademico {
             System.out.println("| 5 | ELIMINAR ASIGNATURA            |");
             System.out.println("| 6 | SALIR                          |");
             System.out.println("|====================================|");
-            System.out.print("Ingrese una opcion (1 - 6)");
+            System.out.print("Ingrese una opcion (1 - 6): ");
             opc = scanner.nextInt();
             
             switch (opc){
-                //case 1 -> RegistrarAsignatura();
+                case 1 -> RegistrarAsignatura();
 
-                //case 2 -> ListarAsignaturas();
+                case 2 -> ListarAsignaturas();
 
-                //case 3 -> BuscarAsignatura();
+                case 3 -> BuscarAsignatura();
 
-                //case 4 -> ActualizarAsignatura();
+                case 4 -> ActualizarAsignatura();
                 
-                //case 5 -> EliminarAsignatura();
+                case 5 -> EliminarAsignatura();
 
                 default -> System.out.println("Opcion incorrecta, ingrese nuevamente...");
             }
@@ -107,6 +110,7 @@ public class SistemaAcademico {
         int opc;
         
         do{
+            System.out.println("");
             System.out.println("|========= MENU NOTAS =========|");
             System.out.println("| 1 | REGISTRAR NOTA           |");
             System.out.println("| 2 | LISTAR NOTAS             |");
@@ -115,7 +119,7 @@ public class SistemaAcademico {
             System.out.println("| 5 | ELIMINAR NOTA            |");
             System.out.println("| 6 | SALIR                    |");
             System.out.println("|==============================|");
-            System.out.print("Ingrese una opcion (1 - 6)");
+            System.out.print("Ingrese una opcion (1 - 6): ");
             opc = scanner.nextInt();
             
             switch (opc){
@@ -335,135 +339,8 @@ public class SistemaAcademico {
 
         System.out.println("Asignatura no encontrada.");
     }
-    //METODO CRUD DE NOTA
- public void RegistrarNota() {
 
-    System.out.print("Codigo del estudiante: ");
-    String codEst = scanner.next();
-
-    Estudiante estudianteEncontrado = null;
-
-    for (Estudiante e : listaEstudiantes) {
-        if (e.getCodigo().equals(codEst)) {
-            estudianteEncontrado = e;
-            break;
-        }
-    }
-
-    if (estudianteEncontrado == null) {
-        System.out.println("Estudiante no encontrado.");
-        return;
-    }
-
-    System.out.print("Codigo de la asignatura: ");
-    String codAsig = scanner.next();
-
-    Asignatura asignaturaEncontrada = null;
-
-    for (Asignatura a : listaAsignaturas) {
-        if (a.getCodigo().equals(codAsig)) {
-            asignaturaEncontrada = a;
-            break;
-        }
-    }
-
-    if (asignaturaEncontrada == null) {
-        System.out.println("Asignatura no encontrada.");
-        return;
-    }
-
-    System.out.print("Valor de la nota: ");
-    double valor = scanner.nextDouble();
-
-    System.out.print("Periodo: ");
-    String periodo = scanner.next();
-
-    Nota n = new Nota(estudianteEncontrado, asignaturaEncontrada, valor, periodo);
-
-    listaNotas.add(n);
-
-    System.out.println("Nota registrada correctamente.");
-}   
- public void ListarNotas() {
-
-    if (listaNotas.isEmpty()) {
-        System.out.println("No hay notas registradas.");
-        return;
-    }
-
-    for (Nota n : listaNotas) {
-        System.out.println(n);
-        System.out.println("----------------------");
-    }
-}
- public void BuscarNota() {
-
-    System.out.print("Codigo del estudiante: ");
-    String codEst = scanner.next();
-
-    System.out.print("Codigo de la asignatura: ");
-    String codAsig = scanner.next();
-
-    for (Nota n : listaNotas) {
-
-        if (n.getEstudiante().getCodigo().equals(codEst) &&
-            n.getAsignatura().getCodigo().equals(codAsig)) {
-
-            System.out.println(n);
-            return;
-        }
-    }
-
-    System.out.println("Nota no encontrada.");
-}
- public void ActualizarNota() {
-
-    System.out.print("Codigo del estudiante: ");
-    String codEst = scanner.next();
-
-    System.out.print("Codigo de la asignatura: ");
-    String codAsig = scanner.next();
-
-    for (Nota n : listaNotas) {
-
-        if (n.getEstudiante().getCodigo().equals(codEst) &&
-            n.getAsignatura().getCodigo().equals(codAsig)) {
-
-            System.out.print("Nuevo valor: ");
-            n.setValor(scanner.nextDouble());
-
-            System.out.print("Nuevo periodo: ");
-            n.setPeriodo(scanner.next());
-
-            System.out.println("Nota actualizada.");
-            return;
-        }
-    }
-
-    System.out.println("Nota no encontrada.");
-}
- 
- public void EliminarNota() {
-
-    System.out.print("Codigo del estudiante: ");
-    String codEst = scanner.next();
-
-    System.out.print("Codigo de la asignatura: ");
-    String codAsig = scanner.next();
-
-    for (int i = 0; i < listaNotas.size(); i++) {
-
-        if (listaNotas.get(i).getEstudiante().getCodigo().equals(codEst) &&
-            listaNotas.get(i).getAsignatura().getCodigo().equals(codAsig)) {
-
-            listaNotas.remove(i);
-            System.out.println("Nota eliminada.");
-            return;
-        }
-    }
-
-    System.out.println("Nota no encontrada.");
-}
+     
 }
 
 
