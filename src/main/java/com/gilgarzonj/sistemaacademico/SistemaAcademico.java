@@ -358,9 +358,9 @@ public class SistemaAcademico {
     System.out.print("Codigo de la asignatura: ");
     String codAsig = scanner.next();
 
-    Asignaturas asignaturaEncontrada = null;
+    Asignatura asignaturaEncontrada = null;
 
-    for (Asignaturas a : listaAsignaturas) {
+    for (Asignatura a : listaAsignaturas) {
         if (a.getCodigo().equals(codAsig)) {
             asignaturaEncontrada = a;
             break;
@@ -384,6 +384,18 @@ public class SistemaAcademico {
 
     System.out.println("Nota registrada correctamente.");
 }   
+ public void ListarNotas() {
+
+    if (listaNotas.isEmpty()) {
+        System.out.println("No hay notas registradas.");
+        return;
+    }
+
+    for (Nota n : listaNotas) {
+        System.out.println(n);
+        System.out.println("----------------------");
+    }
+}
 }
 
 
