@@ -336,134 +336,136 @@ public class SistemaAcademico {
         System.out.println("Asignatura no encontrada.");
     }
     //METODO CRUD DE NOTA
- public void RegistrarNota() {
+    public void RegistrarNota() {
 
-    System.out.print("Codigo del estudiante: ");
-    String codEst = scanner.next();
+        System.out.print("Codigo del estudiante: ");
+        String codEst = scanner.next();
 
-    Estudiante estudianteEncontrado = null;
+        Estudiante estudianteEncontrado = null;
 
-    for (Estudiante e : listaEstudiantes) {
-        if (e.getCodigo().equals(codEst)) {
-            estudianteEncontrado = e;
-            break;
+        for (Estudiante e : listaEstudiantes) {
+            if (e.getCodigo().equals(codEst)) {
+                estudianteEncontrado = e;
+                break;
+            }
         }
-    }
 
-    if (estudianteEncontrado == null) {
-        System.out.println("Estudiante no encontrado.");
-        return;
-    }
-
-    System.out.print("Codigo de la asignatura: ");
-    String codAsig = scanner.next();
-
-    Asignatura asignaturaEncontrada = null;
-
-    for (Asignatura a : listaAsignaturas) {
-        if (a.getCodigo().equals(codAsig)) {
-            asignaturaEncontrada = a;
-            break;
+        if (estudianteEncontrado == null) {
+            System.out.println("Estudiante no encontrado.");
+            return;
         }
-    }
 
-    if (asignaturaEncontrada == null) {
-        System.out.println("Asignatura no encontrada.");
-        return;
-    }
+        System.out.print("Codigo de la asignatura: ");
+        String codAsig = scanner.next();
 
-    System.out.print("Valor de la nota: ");
-    double valor = scanner.nextDouble();
+        Asignatura asignaturaEncontrada = null;
 
-    System.out.print("Periodo: ");
-    String periodo = scanner.next();
+        for (Asignatura a : listaAsignaturas) {
+            if (a.getCodigo().equals(codAsig)) {
+                asignaturaEncontrada = a;
+                break;
+            }
+        }
 
-    Nota n = new Nota(estudianteEncontrado, asignaturaEncontrada, valor, periodo);
+        if (asignaturaEncontrada == null) {
+            System.out.println("Asignatura no encontrada.");
+            return;
+        }
 
-    listaNotas.add(n);
+        System.out.print("Valor de la nota: ");
+        double valor = scanner.nextDouble();
 
-    System.out.println("Nota registrada correctamente.");
-}   
- public void ListarNotas() {
+        System.out.print("Periodo: ");
+        String periodo = scanner.next();
 
-    if (listaNotas.isEmpty()) {
-        System.out.println("No hay notas registradas.");
-        return;
-    }
+        Nota n = new Nota(estudianteEncontrado, asignaturaEncontrada, valor, periodo);
 
-    for (Nota n : listaNotas) {
-        System.out.println(n);
-        System.out.println("----------------------");
-    }
-}
- public void BuscarNota() {
+        listaNotas.add(n);
 
-    System.out.print("Codigo del estudiante: ");
-    String codEst = scanner.next();
+        System.out.println("Nota registrada correctamente.");
+    }   
+     public void ListarNotas() {
 
-    System.out.print("Codigo de la asignatura: ");
-    String codAsig = scanner.next();
+        if (listaNotas.isEmpty()) {
+            System.out.println("No hay notas registradas.");
+            return;
+        }
 
-    for (Nota n : listaNotas) {
-
-        if (n.getEstudiante().getCodigo().equals(codEst) &&
-            n.getAsignatura().getCodigo().equals(codAsig)) {
-
+        for (Nota n : listaNotas) {
             System.out.println(n);
-            return;
+            System.out.println("----------------------");
         }
     }
+    public void BuscarNota() {
 
-    System.out.println("Nota no encontrada.");
-}
- public void ActualizarNota() {
+       System.out.print("Codigo del estudiante: ");
+       String codEst = scanner.next();
 
-    System.out.print("Codigo del estudiante: ");
-    String codEst = scanner.next();
+       System.out.print("Codigo de la asignatura: ");
+       String codAsig = scanner.next();
 
-    System.out.print("Codigo de la asignatura: ");
-    String codAsig = scanner.next();
+       for (Nota n : listaNotas) {
 
-    for (Nota n : listaNotas) {
+           if (n.getEstudiante().getCodigo().equals(codEst) &&
+               n.getAsignatura().getCodigo().equals(codAsig)) {
 
-        if (n.getEstudiante().getCodigo().equals(codEst) &&
-            n.getAsignatura().getCodigo().equals(codAsig)) {
+               System.out.println(n);
+               return;
+           }
+       }
 
-            System.out.print("Nuevo valor: ");
-            n.setValor(scanner.nextDouble());
+       System.out.println("Nota no encontrada.");
+   }
+    public void ActualizarNota() {
 
-            System.out.print("Nuevo periodo: ");
-            n.setPeriodo(scanner.next());
+       System.out.print("Codigo del estudiante: ");
+       String codEst = scanner.next();
 
-            System.out.println("Nota actualizada.");
-            return;
-        }
-    }
+       System.out.print("Codigo de la asignatura: ");
+       String codAsig = scanner.next();
 
-    System.out.println("Nota no encontrada.");
-}
- 
- public void EliminarNota() {
+       for (Nota n : listaNotas) {
 
-    System.out.print("Codigo del estudiante: ");
-    String codEst = scanner.next();
+           if (n.getEstudiante().getCodigo().equals(codEst) &&
+               n.getAsignatura().getCodigo().equals(codAsig)) {
 
-    System.out.print("Codigo de la asignatura: ");
-    String codAsig = scanner.next();
+               System.out.print("Nuevo valor: ");
+               n.setValor(scanner.nextDouble());
 
-    for (int i = 0; i < listaNotas.size(); i++) {
+               System.out.print("Nuevo periodo: ");
+               n.setPeriodo(scanner.next());
 
-        if (listaNotas.get(i).getEstudiante().getCodigo().equals(codEst) &&
-            listaNotas.get(i).getAsignatura().getCodigo().equals(codAsig)) {
+               System.out.println("Nota actualizada.");
+               return;
+           }
+       }
 
-            listaNotas.remove(i);
-            System.out.println("Nota eliminada.");
-            return;
-        }
-    }
+       System.out.println("Nota no encontrada.");
+   }
 
-    System.out.println("Nota no encontrada.");
-}
+    public void EliminarNota() {
+
+       System.out.print("Codigo del estudiante: ");
+       String codEst = scanner.next();
+
+       System.out.print("Codigo de la asignatura: ");
+       String codAsig = scanner.next();
+
+       for (int i = 0; i < listaNotas.size(); i++) {
+
+           if (listaNotas.get(i).getEstudiante().getCodigo().equals(codEst) &&
+               listaNotas.get(i).getAsignatura().getCodigo().equals(codAsig)) {
+
+               listaNotas.remove(i);
+               System.out.println("Nota eliminada.");
+               return;
+           }
+       }
+
+       System.out.println("Nota no encontrada.");
+   }
+    
+    //fin del programa...
 }
 
 
