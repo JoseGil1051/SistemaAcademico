@@ -269,15 +269,15 @@ public class SistemaAcademico {
          
      }
     
-    public void ListarAsignaturas() {
      
-      public void ListarAsignaturas() {
+    public void ListarAsignaturas() {
         if (listaAsignaturas.isEmpty()) {
             System.out.println("No hay asignaturas registradas.");
             return;
         }
+    }
         
-        public void BuscarAsignatura() {
+    public void BuscarAsignatura() {
         System.out.print("Ingrese codigo a buscar: ");
         String codigo = scanner.next();
 
