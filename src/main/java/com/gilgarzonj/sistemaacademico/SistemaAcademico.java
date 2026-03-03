@@ -7,8 +7,8 @@ import com.gilgarzonj.sistemaacademico.Estudiante;
 public class SistemaAcademico {
     Scanner scanner = new Scanner(System.in);
     ArrayList<Estudiante> listaEstudiantes = new ArrayList<>();
-    ArrayList listaAsignaturas = new ArrayList<>();
-    ArrayList listaNotas = new ArrayList<>();
+    ArrayList <Asignatura>listaAsignaturas = new ArrayList<>();
+    ArrayList <Nota>listaNotas = new ArrayList<>();
     
     public static void main(String[] args) {
         
@@ -119,15 +119,15 @@ public class SistemaAcademico {
             opc = scanner.nextInt();
             
             switch (opc){
-                //case 1 -> RegistrarNota();
+                case 1 -> RegistrarNota();
 
-                //case 2 -> ListarNotas();
+                case 2 -> ListarNotas();
 
-                //case 3 -> BuscarNota();
+                case 3 -> BuscarNota();
 
-                //case 4 -> ActualizarNota();
+                case 4 -> ActualizarNota();
                 
-                //case 5 -> EliminarNota();
+                case 5 -> EliminarNota();
 
                 default -> System.out.println("Opcion incorrecta, ingrese nuevamente...");
             }
@@ -250,7 +250,7 @@ public class SistemaAcademico {
     //METODO CRUD DE ASIGNATURAS
     
     public void RegistrarAsignatura(){
-         Asignaturas a = new Asignaturas();
+         Asignatura a = new Asignatura();
          System.out.println("Codigo:");
          a.setCodigo(scanner.next());
          
@@ -280,7 +280,7 @@ public class SistemaAcademico {
         System.out.print("Ingrese codigo a buscar: ");
         String codigo = scanner.next();
 
-        for (Asignaturas a : listaAsignaturas) {
+        for (Asignatura a : listaAsignaturas) {
             if (a.getCodigo().equals(codigo)) {
 
                 System.out.println("Codigo: " + a.getCodigo());
@@ -298,7 +298,7 @@ public class SistemaAcademico {
         System.out.print("Ingrese codigo de la asignatura: ");
         String codigo = scanner.next();
 
-        for (Asignaturas a : listaAsignaturas) {
+        for (Asignatura a : listaAsignaturas) {
 
             if (a.getCodigo().equals(codigo)) {
 
@@ -335,8 +335,55 @@ public class SistemaAcademico {
 
         System.out.println("Asignatura no encontrada.");
     }
-    //METODO CRUD DE ESTUDIANTES
-     
+    //METODO CRUD DE NOTA
+ public void RegistrarNota() {
+
+    System.out.print("Codigo del estudiante: ");
+    String codEst = scanner.next();
+
+    Estudiante estudianteEncontrado = null;
+
+    for (Estudiante e : listaEstudiantes) {
+        if (e.getCodigo().equals(codEst)) {
+            estudianteEncontrado = e;
+            break;
+        }
+    }
+
+    if (estudianteEncontrado == null) {
+        System.out.println("Estudiante no encontrado.");
+        return;
+    }
+
+    System.out.print("Codigo de la asignatura: ");
+    String codAsig = scanner.next();
+
+    Asignaturas asignaturaEncontrada = null;
+
+    for (Asignaturas a : listaAsignaturas) {
+        if (a.getCodigo().equals(codAsig)) {
+            asignaturaEncontrada = a;
+            break;
+        }
+    }
+
+    if (asignaturaEncontrada == null) {
+        System.out.println("Asignatura no encontrada.");
+        return;
+    }
+
+    System.out.print("Valor de la nota: ");
+    double valor = scanner.nextDouble();
+
+    System.out.print("Periodo: ");
+    String periodo = scanner.next();
+
+    Nota n = new Nota(estudianteEncontrado, asignaturaEncontrada, valor, periodo);
+
+    listaNotas.add(n);
+
+    System.out.println("Nota registrada correctamente.");
+}   
 }
 
 
