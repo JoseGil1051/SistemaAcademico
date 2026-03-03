@@ -80,7 +80,13 @@ public class Nota {
         this.periodo = periodo;
     }
     
-    
+    @Override
+    public String toString(){
+        return "Estudiante:" + estudiante+
+                "Asignatura: "+ asignatura+
+                "valor: "+valor+
+                "Periodo: "+periodo;
+    }
     
     
 }
