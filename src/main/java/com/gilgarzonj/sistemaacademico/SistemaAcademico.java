@@ -2,10 +2,11 @@ package com.gilgarzonj.sistemaacademico;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import com.gilgarzonj.sistemaacademico.Estudiante;
 
 public class SistemaAcademico {
     Scanner scanner = new Scanner(System.in);
-    ArrayList<Estudiantes> listaEstudiantes = new ArrayList<>();
+    ArrayList<Estudiante> listaEstudiantes = new ArrayList<>();
     ArrayList listaAsignaturas = new ArrayList<>();
     ArrayList listaNotas = new ArrayList<>();
     
@@ -56,15 +57,15 @@ public class SistemaAcademico {
             opc = scanner.nextInt();
             
             switch (opc){
-                //case 1 -> RegistrarEstudiante();
+                case 1 -> RegistrarEstudiante();
 
-                //case 2 -> ListarEstudiantes();
+                case 2 -> ListarEstudiantes();
 
-                //case 3 -> BuscarEstudiante();
+                case 3 -> BuscarEstudiante();
 
-                //case 4 -> ActualizarEstudiante();
+                case 4 -> ActualizarEstudiante();
                 
-                //case 5 -> EliminarEstudiante();
+                case 5 -> EliminarEstudiante();
 
                 default -> System.out.println("Opcion incorrecta, ingrese nuevamente...");
             }
@@ -136,22 +137,27 @@ public class SistemaAcademico {
     //METODO CRUD DE ESTUDIANTE
     
     public void RegistrarEstudiante() {
-        Estudiantes e = new Estudiantes();
+        Estudiante e = new Estudiante();
 
         System.out.print("Codigo: ");
-        e.codigo = scanner.next();
+        String codigo = scanner.next();
+        e.setCodigo(codigo);
 
         System.out.print("Nombre: ");
-        e.nombre = scanner.next();
+        String nombre = scanner.next();
+        e.setNombre(nombre); 
 
         System.out.print("Apellido: ");
-        e.apellido = scanner.next();
+        String apellido = scanner.next();
+        e.setApellido(apellido);
 
         System.out.print("Edad: ");
-        e.edad = scanner.nextInt();
+        int edad = scanner.nextInt();
+        e.setEdad(edad);
 
         System.out.print("Semestre: ");
-        e.semestre = scanner.nextInt();
+        int semestre = scanner.nextInt();
+        e.setSemestre(semestre);
 
         listaEstudiantes.add(e);
 
@@ -164,12 +170,12 @@ public class SistemaAcademico {
             return;
         }
 
-        for (Estudiantes e : listaEstudiantes) {
-            System.out.println("Codigo: " + e.codigo);
-            System.out.println("Nombre: " + e.nombre);
-            System.out.println("Apellido: " + e.apellido);
-            System.out.println("Edad: " + e.edad);
-            System.out.println("Semestre: " + e.semestre);
+        for (Estudiante e : listaEstudiantes) {
+            System.out.println("Codigo: " + e.getCodigo());
+            System.out.println("Nombre: " + e.getNombre());
+            System.out.println("Apellido: " + e.getApellido());
+            System.out.println("Edad: " + e.getEdad());
+            System.out.println("Semestre: " + e.getSemestre());
             System.out.println("-----------------------------");
         }
     }
@@ -178,13 +184,13 @@ public class SistemaAcademico {
         System.out.print("Ingrese codigo a buscar: ");
         String codigo = scanner.next();
 
-        for (Estudiantes e : listaEstudiantes) {
-            if (e.codigo.equals(codigo)) {
+        for (Estudiante e : listaEstudiantes) {
+            if (e.getCodigo().equals(codigo)) {
 
-                System.out.println("Nombre: " + e.nombre);
-                System.out.println("Apellido: " + e.apellido);
-                System.out.println("Edad: " + e.edad);
-                System.out.println("Semestre: " + e.semestre);
+                System.out.println("Nombre: " + e.getNombre());
+                System.out.println("Apellido: " + e.getApellido());
+                System.out.println("Edad: " + e.getEdad());
+                System.out.println("Semestre: " + e.getSemestre());
                 return;
             }
         }
@@ -196,21 +202,25 @@ public class SistemaAcademico {
         System.out.print("Ingrese codigo del estudiante: ");
         String codigo = scanner.next();
 
-        for (Estudiantes e : listaEstudiantes) {
+        for (Estudiante e : listaEstudiantes) {
 
-            if (e.codigo.equals(codigo)) {
+            if (e.getCodigo().equals(codigo)) {
 
                 System.out.print("Nuevo nombre: ");
-                e.nombre = scanner.next();
+                String nombre = scanner.next();
+                e.setNombre(nombre);
 
                 System.out.print("Nuevo apellido: ");
-                e.apellido = scanner.next();
+                String apellido = scanner.next();
+                e.setApellido(apellido);
 
                 System.out.print("Nueva edad: ");
-                e.edad = scanner.nextInt();
+                int edad = scanner.nextInt();
+                e.setEdad(edad);
 
                 System.out.print("Nuevo semestre: ");
-                e.semestre = scanner.nextInt();
+                int semestre = scanner.nextInt();
+                e.setSemestre(semestre);
 
                 System.out.println("Estudiante actualizado.");
                 return;
@@ -226,7 +236,7 @@ public class SistemaAcademico {
 
         for (int i = 0; i < listaEstudiantes.size(); i++) {
 
-            if (listaEstudiantes.get(i).codigo.equals(codigo)) {
+            if (listaEstudiantes.get(i).getCodigo().equals(codigo)) {
 
                 listaEstudiantes.remove(i);
                 System.out.println("Estudiante eliminado.");
@@ -239,5 +249,98 @@ public class SistemaAcademico {
     
     //METODO CRUD DE ASIGNATURAS
     
+    public void RegistrarAsignatura(){
+         Asignaturas a = new Asignaturas();
+         System.out.println("Codigo:");
+         a.setCodigo(scanner.next());
+         
+         System.out.println("Nombre:");
+         a.setCodigo(scanner.next());
+         
+         System.out.println("Creditos:");
+         a.setCodigo(scanner.next());
+         
+         System.out.println("Docentos:");
+         a.setCodigo(scanner.next());
+         
+         listaAsignaturas.add(a);
+         
+         System.out.println("Asignatura agregada correctamente");
+         
+     }
+    
+    public void ListarAsignaturas() {
+     
+      public void ListarAsignaturas() {
+        if (listaAsignaturas.isEmpty()) {
+            System.out.println("No hay asignaturas registradas.");
+            return;
+        }
+        
+        public void BuscarAsignatura() {
+        System.out.print("Ingrese codigo a buscar: ");
+        String codigo = scanner.next();
+
+        for (Asignaturas a : listaAsignaturas) {
+            if (a.getCodigo().equals(codigo)) {
+
+                System.out.println("Codigo: " + a.getCodigo());
+                System.out.println("Nombre: " + a.getNombre());
+                System.out.println("Creditos: " + a.getCreditos());
+                System.out.println("Docente: " + a.getDocente());
+                return;
+            }
+        }
+
+        System.out.println("Asignatura no encontrada.");
+    }
+        
+        public void ActualizarAsignatura() {
+        System.out.print("Ingrese codigo de la asignatura: ");
+        String codigo = scanner.next();
+
+        for (Asignaturas a : listaAsignaturas) {
+
+            if (a.getCodigo().equals(codigo)) {
+
+                System.out.print("Nuevo nombre: ");
+                a.setNombre(scanner.next());
+
+                System.out.print("Nuevos creditos: ");
+                a.setCreditos(scanner.nextInt());
+
+                System.out.print("Nuevo docente: ");
+                a.setDocente(scanner.next());
+
+                System.out.println("Asignatura actualizada.");
+                return;
+            }
+        }
+
+        System.out.println("Estudiante no encontrado.");
+    }
+        
+        public void EliminarAsignatura() {
+        System.out.print("Ingrese codigo de la Asignatura: ");
+        String codigo = scanner.next();
+
+        for (int i = 0; i < listaAsignaturas.size(); i++) {
+
+            if (listaAsignaturas.get(i).getCodigo().equals(codigo)) {
+
+                listaAsignaturas.remove(i);
+                System.out.println("Asignatura eliminada.");
+                return;
+            }
+        }
+
+        System.out.println("Asignatura no encontrada.");
+    }
     //METODO CRUD DE ESTUDIANTES
+     
 }
+
+
+
+
+
