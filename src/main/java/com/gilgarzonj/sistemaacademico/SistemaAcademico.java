@@ -268,52 +268,6 @@ public class SistemaAcademico {
          System.out.println("Asignatura agregada correctamente");
          
      }
-    
-    public void BuscarAsignatura() {
-        System.out.print("Ingrese codigo a buscar: ");
-        String codigo = scanner.next();
-
-        for (Asignaturas a : listaAsignaturas) {
-            if (a.getCodigo().equals(codigo)) {
-
-                System.out.println("Codigo: " + a.getCodigo());
-                System.out.println("Nombre: " + a.getNombre());
-                System.out.println("Creditos: " + a.getCreditos());
-                System.out.println("Docente: " + a.getDocente());
-                return;
-            }
-        }
-
-        System.out.println("Asignatura no encontrada.");
-    }
-    
-     
-    public void ListarAsignaturas() {
-        if (listaAsignaturas.isEmpty()) {
-            System.out.println("No hay asignaturas registradas.");
-            return;
-        }
-    }
-     
-    public void EliminarAsignatura() {
-        System.out.print("Ingrese codigo de la Asignatura: ");
-        String codigo = scanner.next();
-
-        for (int i = 0; i < listaAsignaturas.size(); i++) {
-
-            if (listaAsignaturas.get(i).getCodigo().equals(codigo)) {
-
-                listaAsignaturas.remove(i);
-                System.out.println("Asignatura eliminada.");
-                return;
-            }
-        }
-
-        System.out.println("Asignatura no encontrada.");
-    }
-    
-    
-    
     //METODO CRUD DE ESTUDIANTES
      
 }
