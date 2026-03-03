@@ -270,14 +270,13 @@ public class SistemaAcademico {
      }
     
     public void ListarAsignaturas() {
-     
-      public void ListarAsignaturas() {
         if (listaAsignaturas.isEmpty()) {
             System.out.println("No hay asignaturas registradas.");
             return;
         }
+    }
         
-        public void BuscarAsignatura() {
+    public void BuscarAsignatura() {
         System.out.print("Ingrese codigo a buscar: ");
         String codigo = scanner.next();
 
@@ -295,7 +294,7 @@ public class SistemaAcademico {
         System.out.println("Asignatura no encontrada.");
     }
         
-        public void ActualizarAsignatura() {
+    public void ActualizarAsignatura() {
         System.out.print("Ingrese codigo de la asignatura: ");
         String codigo = scanner.next();
 
@@ -320,7 +319,7 @@ public class SistemaAcademico {
         System.out.println("Estudiante no encontrado.");
     }
         
-        public void EliminarAsignatura() {
+    public void EliminarAsignatura() {
         System.out.print("Ingrese codigo de la Asignatura: ");
         String codigo = scanner.next();
 
