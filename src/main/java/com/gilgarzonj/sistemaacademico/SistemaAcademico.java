@@ -442,6 +442,28 @@ public class SistemaAcademico {
 
     System.out.println("Nota no encontrada.");
 }
+ 
+ public void EliminarNota() {
+
+    System.out.print("Codigo del estudiante: ");
+    String codEst = scanner.next();
+
+    System.out.print("Codigo de la asignatura: ");
+    String codAsig = scanner.next();
+
+    for (int i = 0; i < listaNotas.size(); i++) {
+
+        if (listaNotas.get(i).getEstudiante().getCodigo().equals(codEst) &&
+            listaNotas.get(i).getAsignatura().getCodigo().equals(codAsig)) {
+
+            listaNotas.remove(i);
+            System.out.println("Nota eliminada.");
+            return;
+        }
+    }
+
+    System.out.println("Nota no encontrada.");
+}
 }
 
 
