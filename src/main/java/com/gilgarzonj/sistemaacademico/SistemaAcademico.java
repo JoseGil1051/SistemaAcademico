@@ -294,6 +294,31 @@ public class SistemaAcademico {
 
         System.out.println("Asignatura no encontrada.");
     }
+        
+        public void ActualizarAsignatura() {
+        System.out.print("Ingrese codigo de la asignatura: ");
+        String codigo = scanner.next();
+
+        for (Asignaturas a : listaAsignaturas) {
+
+            if (a.getCodigo().equals(codigo)) {
+
+                System.out.print("Nuevo nombre: ");
+                a.setNombre(scanner.next());
+
+                System.out.print("Nuevos creditos: ");
+                a.setCreditos(scanner.nextInt());
+
+                System.out.print("Nuevo docente: ");
+                a.setDocente(scanner.next());
+
+                System.out.println("Asignatura actualizada.");
+                return;
+            }
+        }
+
+        System.out.println("Estudiante no encontrado.");
+    }
     //METODO CRUD DE ESTUDIANTES
      
 }
