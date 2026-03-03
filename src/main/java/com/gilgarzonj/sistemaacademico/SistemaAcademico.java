@@ -319,6 +319,23 @@ public class SistemaAcademico {
 
         System.out.println("Estudiante no encontrado.");
     }
+        
+        public void EliminarAsignatura() {
+        System.out.print("Ingrese codigo de la Asignatura: ");
+        String codigo = scanner.next();
+
+        for (int i = 0; i < listaAsignaturas.size(); i++) {
+
+            if (listaAsignaturas.get(i).getCodigo().equals(codigo)) {
+
+                listaAsignaturas.remove(i);
+                System.out.println("Asignatura eliminada.");
+                return;
+            }
+        }
+
+        System.out.println("Asignatura no encontrada.");
+    }
     //METODO CRUD DE ESTUDIANTES
      
 }
